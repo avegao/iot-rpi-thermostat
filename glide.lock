@@ -1,5 +1,5 @@
 hash: 5f519e03eee067695ab1b5b6cc60974f8315d206777d373d3d43a819a367ec03
-updated: 2017-08-31T15:23:53.299233015+02:00
+updated: 2017-09-01T23:21:57.37430498+02:00
 imports:
 - name: github.com/certifi/gocertifi
   version: 3fd9e1adb12b72d2f3f82191d49be9b93c69f67c
@@ -20,7 +20,7 @@ imports:
   subpackages:
   - ssh/terminal
 - name: golang.org/x/sys
-  version: bb24a47a89eac6c1227fbcb2ae37a8b9ed323366
+  version: 7ddbeae9ae08c6a06a59597f0c9edbc5ff2444ce
   subpackages:
   - unix
   - windows

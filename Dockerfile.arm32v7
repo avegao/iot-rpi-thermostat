@@ -2,17 +2,29 @@ FROM arm32v7/golang:1.9.0 AS build
 
 WORKDIR /go/src/gitlab.com/avegao/iot-thermostat
 
+RUN apt-get update && apt-get install -y \
+        golang-glide \
+        git \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY glide.yaml glide.yaml
+COPY glide.lock glide.lock
+
+RUN glide install
+
 COPY ./ ./
 
 RUN go install
 
 ########################################################################################################################
 
-FROM arm32v6/alpine:3.6
+FROM arm32v7/debian:stretch-slim
 
 MAINTAINER "Álvaro de la Vega Olmedilla <alvarodlvo@gmail.com>"
 
-RUN apk add --no-cache ca-certificates
+RUN apt-get update && apt-get install -y \
+        ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
